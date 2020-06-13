@@ -10,10 +10,12 @@ export function manageFriends(state = {friends: []}, action){
         return state
         case 'REMOVE_FRIEND': 
         console.log("state on ln 12", state)
-        let { friends: newFris} = state;
-        let newState = Object.assign({}, {friends: newFris}) 
-        console.log("state on line 15", newState)  
-        const {friends: finalFriendList} = newState
+        let { friends: newFris} = state; 
+        return Object.assign({}, {
+                friends: state.friends.filter((friend) => friend.id !== id)
+}) 
+        
+      
         
         const callBack = (fri, i) => (fri.id === id) ; 
            let x =  finalFriendList.findIndex(callBack) 
